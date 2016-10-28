@@ -29,13 +29,10 @@ exports.nav = function(req, res){
 
 	github.search.users({
 		q: "hirenvaghas"
-	},function(err, pgres) {
+	},app.get('nav',function(req, res, next) {
 		
-		console.log(JSON.stringify(pgres));
-		app.get('/',function(req,res){
-			res.render(pgres,{});
-		});
-	});
+			res.json({user:""});
+		}));
 	github.repos.getForUser({
 		user: "hirenvaghasiya"
 	},function(err,pgres){
